@@ -22,7 +22,7 @@
 @media(max-width:700px){.wordmark span{display:none}.custom-link,.etsy-link{display:none}.space-help{display:none}.collection-nav{bottom:0;padding:12px 16px}}
 
 /* A slimmer, luminous call-for-participants band inspired by the All Works bubble. */
-.classes-banner{position:relative;isolation:isolate;overflow:hidden;min-height:210px;padding:3.2vw 9vw;background:radial-gradient(circle at 74% 78%,#ff8d7d 0,transparent 25%),radial-gradient(circle at 40% 35%,#e7ee4c 0,transparent 23%),radial-gradient(circle at 62% 27%,#d74bec 0,transparent 28%),radial-gradient(circle at 25% 75%,#22d6e9 0,transparent 28%),conic-gradient(from 120deg,#5de4e7,#f4df50,#ec6098,#8159e7,#5de4e7);box-shadow:inset 0 0 80px rgba(255,255,255,.35)}
+.classes-banner{position:relative;isolation:isolate;overflow:hidden;min-height:210px;padding:3.2vw 9vw;background:radial-gradient(circle at 74% 78%,#ff8d7d 0,transparent 25%),radial-gradient(circle at 40% 35%,#e7ee4c 0,transparent 23%),radial-gradient(circle at 62% 27%,#d74bec 0,transparent 28%),radial-gradient(circle at 25% 75%,#22d6e9 0,transparent 28%),;box-shadow:inset 0 0 80px rgba(255,255,255,.35)}
 .classes-banner::before{content:"";position:absolute;inset:-35%;z-index:-1;background:conic-gradient(from 0deg,transparent,#fff6,transparent 32%,#fff3,transparent 58%);filter:blur(28px);animation:call-shimmer 11s linear infinite}
 .classes-banner h2{font-size:clamp(34px,4.5vw,68px);text-shadow:0 2px 24px rgba(42,16,77,.4)}
 .classes-banner .eyebrow,.classes-banner button{position:relative;z-index:1;text-shadow:0 1px 10px rgba(42,16,77,.35)}
