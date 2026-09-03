@@ -1,183 +1,105 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Babak Abdullayev — Visual Artist, Art Educator and PhD Researcher." />
-    <link rel="canonical" href="https://www.artbabak.com/" />
-    <title>Babak Abdullayev — Visual Artist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="enhancements.css" />
-  </head>
-  <body>
-    <main id="home" class="home-page">
-      <header class="site-header">
-        <nav aria-label="Main navigation">
-          <a href="#works" data-i18n="navWorks">Works</a>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#exhibitions" data-i18n="navExhibitions">Exhibitions</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </nav>
-        <div class="header-tools">
-          <a class="etsy-link" href="https://www.etsy.com/" target="_blank" rel="noreferrer">Etsy ✦</a>
-          <a class="custom-link" href="https://www.etsy.com/" target="_blank" rel="noreferrer">Order custom artwork ↗</a>
-          <a class="instagram-link" href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
-          <label class="language-picker">
-            <span class="sr-only">Language</span>
-            <select id="languageSelect" aria-label="Language">
-              <option value="en">EN</option>
-              <option value="tr">TR</option>
-              <option value="az">AZ</option>
-            </select>
-          </label>
-        </div>
-      </header>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babak Abdullayev — Cosmic Visual Artist</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="enhancements.css" />
+</head>
+<body>
 
-      <section class="hero" aria-labelledby="hero-title">
-        <!-- Hero Background Slider (Video / Photos) -->
-        <div id="heroSlider" class="hero-slider">
-          <div class="hero-slide active">
-            <video id="heroVideo" class="hero-video" muted loop playsinline></video>
-            <img id="heroImage" class="hero-image" alt="Hero background" style="display:none;" />
-          </div>
-          <audio id="backgroundAudio" loop></audio>
-        </div>
-        <div class="hero-overlay"></div>
+  <header class="site-header">
+    <div class="wordmark">
+      <img src="assets/babak-abdullayev-logo.jpg" alt="Babak Abdullayev Logo" />
+      <span>Babak Abdullayev</span>
+    </div>
 
-        <!-- Name & Status -->
-        <div class="hero-copy">
-          <h1 id="hero-title">Babak<br /><em>Abdullayev</em></h1>
-          <p class="artist-role">Visual Artist | Art Educator | PhD Researcher</p>
-          <p class="artist-quote">“CREATIVITY TAKES COURAGE”</p>
-        </div>
+    <nav class="header-tools">
+      <a href="https://etsy.com" target="_blank" class="etsy-link">Etsy Shop</a>
+      <a href="https://instagram.com" target="_blank" class="instagram-link">★</a>
+      <div class="language-picker">
+        <select id="langSelect">
+          <option value="az">AZ</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <button class="archive-link" id="openArchiveBtn">3D Arxiv</button>
+    </nav>
+  </header>
 
-        <div class="hero-note">
-          <button class="text-button" id="openArchiveSecond" type="button" data-i18n="allWorks">All works <span>↓</span></button>
-          <button class="sound-button" id="soundButton" type="button" aria-label="Toggle sound">Sound off</button>
-        </div>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <h1>Cosmic Visual Art Portfolio</h1>
+        <p class="artist-role">VISUAL ARTIST &amp; COSMIC EXPLORER</p>
+        <p class="artist-quote">"Kainatın sonsuz işığını və formalarını kətan üzərinə köçürürəm."</p>
+      </div>
 
-        <div class="slider-controls">
-          <button id="previousSlide" type="button" aria-label="Previous slide">←</button>
-          <span id="slideStatus">01 / 01</span>
-          <button id="nextSlide" type="button" aria-label="Next slide">→</button>
-        </div>
-
-        <!-- Floating 3D Archive Portal -->
-        <button class="bubble-button" id="bubbleButton" type="button" aria-label="Open Archive">
-          <span class="bubble halo-one"></span>
-          <span class="bubble halo-two"></span>
-          <span class="bubble core"></span>
-          <span class="bubble-glint"></span>
-          <span class="bubble-label">ENTER<br />ALL WORKS</span>
-        </button>
-        <p class="bubble-hint">All Works</p>
-      </section>
-
-      <section class="classes-banner">
-        <div>
-          <p class="eyebrow">Open call</p>
-          <h2>Call for participants<br />Free online art classes</h2>
-        </div>
-        <button id="openClasses" type="button">Explore classes ↗</button>
-      </section>
-
-      <section id="works" class="selected-works" aria-labelledby="works-title">
-        <div class="section-heading">
-          <p class="eyebrow">01 — <span data-i18n="selectedWorks">Selected works</span></p>
-          <h2 id="works-title" data-i18n="collections">Collections</h2>
-        </div>
-        <div id="featuredGrid" class="featured-grid"></div>
-      </section>
-
-      <section id="about" class="about-section">
-        <p class="eyebrow">02 — <span data-i18n="aboutArtist">About the artist</span></p>
-        <div>
-          <h2 data-i18n="aboutHeading">Colours we feel,<br />beyond what we see.</h2>
-          <p data-i18n="aboutText">This is the place for your artist statement. Write about the colour, material, memory and ideas that shape your work.</p>
-        </div>
-      </section>
-
-      <section id="exhibitions" class="exhibitions-section">
-        <p class="eyebrow">03 — <span data-i18n="exhibitions">Exhibitions</span></p>
-        <h2 data-i18n="exhibitionsHeading">Exhibitions &amp; news</h2>
-        <p data-i18n="exhibitionsText">Add your upcoming and previous exhibitions, press, publications and studio notes here.</p>
-      </section>
-
-      <footer id="contact" class="site-footer">
-        <p>From the studio — world</p>
-        <a href="mailto:hello@artbabak.com">hello@artbabak.com ↗</a>
-        <span>© <span id="year"></span> Babak Abdullayev</span>
-      </footer>
-    </main>
-
-    <!-- Collection Modal -->
-    <section id="collectionGallery" class="collection-gallery" aria-hidden="true">
-      <header>
-        <button id="closeCollection" class="close-button" type="button">← Home</button>
-        <p id="collectionTitle"></p>
-        <span></span>
-      </header>
-      <div id="collectionWorks" class="collection-works"></div>
+      <button class="bubble-button" id="bubbleBtn" title="İnteraktiv Baloncuk">
+        <span>✦</span>
+      </button>
+      <div class="bubble-hint" id="bubbleHint">Arxivi kəşf etmək üçün toxunun</div>
     </section>
 
-    <!-- Classes Modals -->
-    <section id="classesPage" class="classes-page" aria-hidden="true">
-      <header>
-        <button id="closeClasses" class="close-button" type="button">← Home</button>
-        <p>Free online art classes</p>
-        <span></span>
-      </header>
-      <div class="classes-content">
-        <p class="eyebrow">Call for participants</p>
-        <h1>Make time<br /><em>for art.</em></h1>
-        <p class="classes-intro">A free online space for people who want to learn, make and exchange ideas through art.</p>
-        <a class="video-placeholder" href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-          <span>▶</span>
-          <small>Add your YouTube introduction video here</small>
-        </a>
-        <button class="join-button" id="openJoin" type="button">Join free class ↗</button>
+    <section class="folders-section">
+      <div class="folder-card" data-collection="nebula">
+        <img src="https://picsum.photos/600/800?random=10" alt="Nebula Series" />
+        <p>Nebula Kolleksiyası <span>(2025–2026)</span></p>
+      </div>
+      <div class="folder-card" data-collection="deep-space">
+        <img src="https://picsum.photos/600/800?random=11" alt="Deep Space Series" />
+        <p>Dərin Səma <span>(2024–2025)</span></p>
+      </div>
+      <div class="folder-card" data-collection="abstract">
+        <img src="https://picsum.photos/600/800?random=12" alt="Abstract Cosmic" />
+        <p>Mücərrəd Kosmos <span>(2026)</span></p>
       </div>
     </section>
 
-    <!-- 3D All Works Archive -->
-    <section id="archive" class="archive" aria-hidden="true">
-      <header class="archive-header">
-        <button class="close-button" id="closeArchive" type="button">← Home</button>
-        <p id="archiveTitle">All Works — All Artworks</p>
-        <div class="archive-actions">
-          <button id="focusMode" type="button">Centre view</button>
-          <button id="randomWork" type="button">Random work</button>
-        </div>
-      </header>
-      <div id="space" class="space" aria-label="Interactive Art Space">
-        <div class="nebula nebula-one"></div>
-        <div class="nebula nebula-two"></div>
-        <div class="nebula nebula-three"></div>
-        <div id="artWorld" class="art-world"></div>
-        <div class="space-help">Drag to look around · select an artwork · scroll to zoom</div>
+    <section class="classes-banner">
+      <div>
+        <h2>Pulsuz Rəsm Dərsləri</h2>
+        <p>Açıq dərslərə qoşularaq kosmik rəsm texnikalarını öyrənin.</p>
       </div>
-      <nav id="collectionNav" class="collection-nav" aria-label="Collections"></nav>
+      <button id="openClassesBtn">Dərslərə Bax</button>
     </section>
 
-    <!-- Slideshow Viewer Modal -->
-    <section id="slideshow" class="slideshow" aria-hidden="true" aria-label="Artwork Detail">
-      <button id="closeSlideshow" class="slide-close" type="button" aria-label="Close viewer">×</button>
-      <button id="previousWork" class="slide-arrow previous" type="button" aria-label="Previous artwork">←</button>
-      <figure>
-        <img id="slideImage" alt="" />
-        <figcaption>
-          <p id="slideCounter"></p>
-          <h2 id="slideTitle"></h2>
-          <p id="slideMeta"></p>
-          <p id="slideDescription"></p>
-        </figcaption>
-      </figure>
-      <button id="nextWork" class="slide-arrow next" type="button" aria-label="Next artwork">→</button>
+    <section class="exhibitions-section">
+      <h2>Sərgilər &amp; Tədbirlər</h2>
+      <p>Yaxın günlərdə keçiriləcək fərdi sərgilər və yaradıcılıq gecələri haqqında məlumat.</p>
     </section>
+  </main>
 
-    <script src="app.js"></script>
-  </body>
+  <!-- 3D Volumetric Archive Modal -->
+  <div class="collection-gallery" id="archiveModal">
+    <header class="archive-header">
+      <p>Volumetric 3D Archive</p>
+      <button id="closeArchiveBtn">Bağla [X]</button>
+    </header>
+    <div class="space" id="space3d">
+      <div class="art-world" id="artWorld"></div>
+    </div>
+  </div>
+
+  <!-- Classes Modal -->
+  <div class="classes-page" id="classesModal">
+    <header>
+      <p>Rəsm Dərsləri</p>
+      <button id="closeClassesBtn">X</button>
+    </header>
+    <div class="classes-content">
+      <h1>Masterclass</h1>
+      <p class="classes-intro">Videodərslər vasitəsilə texnikaları kəşf edin.</p>
+      <div class="video-placeholder">
+        <span>▶</span>
+        <small>Dərs 01: Kosmik Fonların Hazırlanması</small>
+      </div>
+      <button class="join-button">Qoşulun</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
