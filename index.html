@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Babak Abdullayev — Visual Artist, Art Educator and PhD Researcher." />
+    <link rel="canonical" href="https://www.artbabak.com/" />
+    <title>Babak Abdullayev — Visual Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="enhancements.css" />
+  </head>
+  <body>
+    <main id="home" class="home-page">
+      <header class="site-header">
+        <nav aria-label="Main navigation">
+          <a href="#works" data-i18n="navWorks">Works</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#exhibitions" data-i18n="navExhibitions">Exhibitions</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </nav>
+        <div class="header-tools">
+          <a class="etsy-link" href="https://www.etsy.com/" target="_blank" rel="noreferrer">Etsy ✦</a>
+          <a class="custom-link" href="https://www.etsy.com/" target="_blank" rel="noreferrer">Order custom artwork ↗</a>
+          <a class="instagram-link" href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
+          <label class="language-picker">
+            <span class="sr-only">Language</span>
+            <select id="languageSelect" aria-label="Language">
+              <option value="en">EN</option>
+              <option value="tr">TR</option>
+              <option value="az">AZ</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <!-- Hero Background Slider (Video / Photos) -->
+        <div id="heroSlider" class="hero-slider">
+          <div class="hero-slide active">
+            <video id="heroVideo" class="hero-video" muted loop playsinline></video>
+            <img id="heroImage" class="hero-image" alt="Hero background" style="display:none;" />
+          </div>
+          <audio id="backgroundAudio" loop></audio>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <!-- Name & Status -->
+        <div class="hero-copy">
+          <h1 id="hero-title">Babak<br /><em>Abdullayev</em></h1>
+          <p class="artist-role">Visual Artist | Art Educator | PhD Researcher</p>
+          <p class="artist-quote">“CREATIVITY TAKES COURAGE”</p>
+        </div>
+
+        <div class="hero-note">
+          <button class="text-button" id="openArchiveSecond" type="button" data-i18n="allWorks">All works <span>↓</span></button>
+          <button class="sound-button" id="soundButton" type="button" aria-label="Toggle sound">Sound off</button>
+        </div>
+
+        <div class="slider-controls">
+          <button id="previousSlide" type="button" aria-label="Previous slide">←</button>
+          <span id="slideStatus">01 / 01</span>
+          <button id="nextSlide" type="button" aria-label="Next slide">→</button>
+        </div>
+
+        <!-- Floating 3D Archive Portal -->
+        <button class="bubble-button" id="bubbleButton" type="button" aria-label="Open Archive">
+          <span class="bubble halo-one"></span>
+          <span class="bubble halo-two"></span>
+          <span class="bubble core"></span>
+          <span class="bubble-glint"></span>
+          <span class="bubble-label">ENTER<br />ALL WORKS</span>
+        </button>
+        <p class="bubble-hint">All Works</p>
+      </section>
+
+      <section class="classes-banner">
+        <div>
+          <p class="eyebrow">Open call</p>
+          <h2>Call for participants<br />Free online art classes</h2>
+        </div>
+        <button id="openClasses" type="button">Explore classes ↗</button>
+      </section>
+
+      <section id="works" class="selected-works" aria-labelledby="works-title">
+        <div class="section-heading">
+          <p class="eyebrow">01 — <span data-i18n="selectedWorks">Selected works</span></p>
+          <h2 id="works-title" data-i18n="collections">Collections</h2>
+        </div>
+        <div id="featuredGrid" class="featured-grid"></div>
+      </section>
+
+      <section id="about" class="about-section">
+        <p class="eyebrow">02 — <span data-i18n="aboutArtist">About the artist</span></p>
+        <div>
+          <h2 data-i18n="aboutHeading">Colours we feel,<br />beyond what we see.</h2>
+          <p data-i18n="aboutText">This is the place for your artist statement. Write about the colour, material, memory and ideas that shape your work.</p>
+        </div>
+      </section>
+
+      <section id="exhibitions" class="exhibitions-section">
+        <p class="eyebrow">03 — <span data-i18n="exhibitions">Exhibitions</span></p>
+        <h2 data-i18n="exhibitionsHeading">Exhibitions &amp; news</h2>
+        <p data-i18n="exhibitionsText">Add your upcoming and previous exhibitions, press, publications and studio notes here.</p>
+      </section>
+
+      <footer id="contact" class="site-footer">
+        <p>From the studio — world</p>
+        <a href="mailto:hello@artbabak.com">hello@artbabak.com ↗</a>
+        <span>© <span id="year"></span> Babak Abdullayev</span>
+      </footer>
+    </main>
+
+    <!-- Collection Modal -->
+    <section id="collectionGallery" class="collection-gallery" aria-hidden="true">
+      <header>
+        <button id="closeCollection" class="close-button" type="button">← Home</button>
+        <p id="collectionTitle"></p>
+        <span></span>
+      </header>
+      <div id="collectionWorks" class="collection-works"></div>
+    </section>
+
+    <!-- Classes Modals -->
+    <section id="classesPage" class="classes-page" aria-hidden="true">
+      <header>
+        <button id="closeClasses" class="close-button" type="button">← Home</button>
+        <p>Free online art classes</p>
+        <span></span>
+      </header>
+      <div class="classes-content">
+        <p class="eyebrow">Call for participants</p>
+        <h1>Make time<br /><em>for art.</em></h1>
+        <p class="classes-intro">A free online space for people who want to learn, make and exchange ideas through art.</p>
+        <a class="video-placeholder" href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+          <span>▶</span>
+          <small>Add your YouTube introduction video here</small>
+        </a>
+        <button class="join-button" id="openJoin" type="button">Join free class ↗</button>
+      </div>
+    </section>
+
+    <!-- 3D All Works Archive -->
+    <section id="archive" class="archive" aria-hidden="true">
+      <header class="archive-header">
+        <button class="close-button" id="closeArchive" type="button">← Home</button>
+        <p id="archiveTitle">All Works — All Artworks</p>
+        <div class="archive-actions">
+          <button id="focusMode" type="button">Centre view</button>
+          <button id="randomWork" type="button">Random work</button>
+        </div>
+      </header>
+      <div id="space" class="space" aria-label="Interactive Art Space">
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+        <div class="nebula nebula-three"></div>
+        <div id="artWorld" class="art-world"></div>
+        <div class="space-help">Drag to look around · select an artwork · scroll to zoom</div>
+      </div>
+      <nav id="collectionNav" class="collection-nav" aria-label="Collections"></nav>
+    </section>
+
+    <!-- Slideshow Viewer Modal -->
+    <section id="slideshow" class="slideshow" aria-hidden="true" aria-label="Artwork Detail">
+      <button id="closeSlideshow" class="slide-close" type="button" aria-label="Close viewer">×</button>
+      <button id="previousWork" class="slide-arrow previous" type="button" aria-label="Previous artwork">←</button>
+      <figure>
+        <img id="slideImage" alt="" />
+        <figcaption>
+          <p id="slideCounter"></p>
+          <h2 id="slideTitle"></h2>
+          <p id="slideMeta"></p>
+          <p id="slideDescription"></p>
+        </figcaption>
+      </figure>
+      <button id="nextWork" class="slide-arrow next" type="button" aria-label="Next artwork">→</button>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
