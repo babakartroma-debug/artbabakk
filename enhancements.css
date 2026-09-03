@@ -1,0 +1,306 @@
+/* Hero Media Background & Slider Controls */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video, .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(236, 232, 225, 0.62);
+  z-index: 1;
+}
+
+.hero-copy, .hero-note, .slider-controls, .bubble-button, .bubble-hint {
+  z-index: 2;
+}
+
+/* Floating 3D Archive Portal (Bubble Button) */
+.bubble-button {
+  position: absolute;
+  right: 6vw;
+  top: 35%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.halo-one {
+  border: 1px dashed rgba(24, 23, 21, 0.25);
+  animation: spin 18s linear infinite;
+}
+
+.halo-two {
+  border: 1px solid rgba(24, 23, 21, 0.15);
+  transform: scale(1.15);
+}
+
+.core {
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(200,195,185,0.4) 100%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.bubble-label {
+  position: relative;
+  font: 9px var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.bubble-hint {
+  position: absolute;
+  right: calc(6vw + 15px);
+  top: calc(35% + 70px);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Folder Cards & Collection Modal */
+.folder-card {
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.folder-card img {
+  width: 100%;
+  aspect-ratio: 1.14;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.folder-card:hover img {
+  transform: scale(0.98);
+}
+
+.folder-card p {
+  font: 10px var(--mono);
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.folder-card span {
+  color: #777;
+}
+
+.collection-gallery {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--paper);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s ease;
+  overflow-y: auto;
+}
+
+.collection-gallery.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.collection-gallery header {
+  height: 65px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+}
+
+.close-button {
+  background: none;
+  border: 0;
+  font: 11px var(--mono);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.collection-works {
+  padding: 6vw 5vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw 2vw;
+}
+
+.collection-work {
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.collection-work img {
+  width: 100%;
+  aspect-ratio: 0.95;
+  object-fit: cover;
+  display: block;
+}
+
+.collection-work p {
+  font: 10px var(--mono);
+  margin-top: 10px;
+}
+
+/* 3D Archive Modal & Slideshow */
+.archive {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #111;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s;
+}
+
+.archive.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.archive-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4vw;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.archive-header .close-button {
+  color: #fff;
+}
+
+.space {
+  width: 100vw;
+  height: 100vh;
+  perspective: 1000px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.art-world {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.art-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2);
+  border: 3px solid #fff;
+  background: #000;
+  cursor: pointer;
+  padding: 0;
+}
+
+.art-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideshow {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.slideshow.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideshow figure {
+  max-width: 80vw;
+  max-height: 80vh;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+
+.slideshow img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.slideshow figcaption {
+  margin-top: 20px;
+  font-family: var(--mono);
+}
+
+.slide-close, .slide-arrow {
+  position: absolute;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.slide-close { top: 30px; right: 40px; }
+.slide-arrow.previous { left: 40px; }
+.slide-arrow.next { right: 40px; }
+
+@media(max-width: 700px) {
+  .collection-works { grid-template-columns: repeat(2, 1fr); }
+  .bubble-button { right: 4vw; width: 90px; height: 90px; }
+}
